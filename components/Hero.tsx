@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import Calendar from './Calendar'
 
 export default function Hero() {
   return (
@@ -10,6 +11,7 @@ export default function Hero() {
         <Button text="Sing Up" />
         <Button text="Login" dark />
       </div>
+      <Calendar />
     </div>
   )
 }

@@ -26,6 +26,9 @@ export default function RootLayout({
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4 ">
       <h1 className={`textGradient text-base font-fugaz`}>Broodl</h1>
+      <div className="flex items-center justify-between">
+        PLACEHOLDER CTA || STATS
+      </div>
     </header>
   );
   const footer = (
