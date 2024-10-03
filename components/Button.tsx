@@ -11,7 +11,7 @@ export default function Button({
     full?: boolean
 }) {
   return (
-    <button className={cn("border-2 border-solid rounded-full overflow-hiddenborder-indigo-600 duration-200 hover:opacity-70", {
+    <button className={cn("border-2 border-solid rounded-full overflow-hidden border-indigo-600 duration-200 hover:opacity-70", {
       "text-white bg-indigo-600": dark,
       "text-indigo-600": !dark,
       "grid place-items-center w-full": full

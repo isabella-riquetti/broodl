@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fugaz_One, Open_Sans } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4 ">
-      <h1 className={`textGradient text-base font-fugaz`}>Broodl</h1>
+      <h1 className={`textGradient text-base font-fugaz`}><Link href="/">Broodl</Link></h1>
       <div className="flex items-center justify-between">
         PLACEHOLDER CTA || STATS
       </div>
