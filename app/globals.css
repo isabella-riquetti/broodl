@@ -31,3 +31,20 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.purpleShadow {
+  box-shadow: 3px 3px 1px 1px lavender;
+}
+
+.purpleShadow:hover {
+  transform: translate(3px 3px);
+  box-shadow: 0px 0px 1px 1px lavender;
+}
+
+.text-5xl-gradual {
+  @apply text-5xl sm:text-6xl md:text-7xl;
+}
+
+.text-4xl-gradual {
+  @apply text-4xl sm:text-5xl md:text-6xl;
+}
