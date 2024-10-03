@@ -4,7 +4,7 @@ import Main from "@/components/Main";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Broodl · Dashboard"
+    title: "Moodl · Dashboard"
 };
 
 export default function DashbaordPage() {

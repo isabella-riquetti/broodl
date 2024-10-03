@@ -15,7 +15,7 @@ const fugaz = Fugaz_One({
 });
 
 export const metadata: Metadata = {
-  title: "Broodl",
+  title: "Moodl",
   description: "Track your daily mood, every ay of the year!",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4 ">
-      <h1 className={`textGradient text-base font-fugaz`}><Link href="/">Broodl</Link></h1>
+      <h1 className={`textGradient text-base font-fugaz`}><Link href="/">Moodl</Link></h1>
       <div className="flex items-center justify-between">
         PLACEHOLDER CTA || STATS
       </div>
