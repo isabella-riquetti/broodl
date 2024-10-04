@@ -13,6 +13,15 @@ Here's a sample README for a React + Next.js + Firebase project that allows user
 
 The **Moodl** is a web-based application built using **React** and **Next.js** for the front-end and **Firebase** for authentication and database, and **Vercel** for hosting. This app allows users to track their mood over time by recording how they feel throughout the day. The recorded moods can be visualized over a calendar and in charts to help users better understand their emotional patterns.
 
+<img width="555" alt="image" src="https://github.com/user-attachments/assets/d37a096c-6515-4b13-a5d5-cdfc3728510f"> <img width="236" alt="image" src="https://github.com/user-attachments/assets/192f4893-a9e6-4859-8ce0-8fb9e04783e4">
+
+
+
+
+
+
+
+
 ## Features
 
 - **User Authentication**: Users can sign up and log in via Firebase Authentication (Google, Email/Password, etc.).
