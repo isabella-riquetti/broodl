@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AuthProvider } from "@/context/AuthContext";
 import Header from "./head";
 import HeaderAction from "@/components/HeaderAction";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const fugaz = Fugaz_One({
   variable: "--font-fugaz-one",
@@ -39,6 +41,7 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <Header />
+        <ToastContainer />
         <body
           className={`${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
         >

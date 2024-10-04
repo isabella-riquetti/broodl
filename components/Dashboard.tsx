@@ -7,6 +7,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import Loading from './Loading';
 import Login from './Login';
+import { toast } from 'react-toastify';
 
 export default function Dashboard() {
   const now = new Date();
@@ -49,13 +50,22 @@ export default function Dashboard() {
     setUserDataObj(newData)
 
     const docRef = doc(db, 'users', currentUser.uid)
-    await setDoc(docRef, {
+    const moodPromise = setDoc(docRef, {
       [year]: {
         [month]: {
           [day]: mood
         }
       }
     }, { merge: true });
+    toast.promise(
+      moodPromise,
+      {
+        pending: 'Saving your mood',
+        success: 'Mood saved',
+        error: 'Issue saving mood'
+      }
+    )
+    await moodPromise;
   }
 
   const statuses = {
