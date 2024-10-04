@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fugaz_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { AuthProvider } from "@/context/AuthContext";
+import Header from "./head";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -39,13 +41,16 @@ export default function RootLayout({
   );
   return (
     <html lang="en">
-      <body
-        className={`${openSans.variable} ${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
-      >
-        {header}
-        {children}
-        {footer}
-      </body>
+      <AuthProvider>
+        <Header />
+        <body
+          className={`${openSans.variable} ${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
+        >
+          {header}
+          {children}
+          {footer}
+        </body>
+      </AuthProvider>
     </html>
   );
 }
