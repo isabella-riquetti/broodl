@@ -20,7 +20,7 @@ const months = {
 };
 const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-export default function Calendar({ data }: { data: any; handleSetMood?: (mood: number) => Promise<void>; }) {
+export default function Calendar({ data }: { data?: any; handleSetMood?: (mood: number) => Promise<void>; }) {
   const now = new Date();
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
@@ -69,11 +69,14 @@ export default function Calendar({ data }: { data: any; handleSetMood?: (mood: n
             const isEmptyDaySquare = dayIndex > daysInMonth || (rowIndex === 0 && dayOfWeekIndex < firstDayOfMonth);
             const isToday = dayIndex === now.getDate();
 
-            const color = !data
+            const selectedDate = new Date(selectedYear, selectedMonth, dayIndex);
+            const mockedData = selectedDate <= now
               ? gradients.indigo[baseRating[dayIndex]]
-              : data?.[selectedYear]?.[selectedMonth]?.[dayIndex]
-                ? gradients.indigo[data[selectedYear][selectedMonth][dayIndex]!]
-                : 'white';
+                : "white";
+
+            const color = !data
+              ? mockedData                
+              : gradients.indigo[data?.[selectedYear]?.[selectedMonth]?.[dayIndex]] ?? "white";
             if (isEmptyDaySquare) return <div className='bg-white' key={dayOfWeek}></div>
 
             return (<div

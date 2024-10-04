@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Fugaz_One, Open_Sans } from "next/font/google";
+import { Fugaz_One } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { AuthProvider } from "@/context/AuthContext";
 import Header from "./head";
+import HeaderAction from "@/components/HeaderAction";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  weight: "500",
-  subsets: ["latin"],
-});
 const fugaz = Fugaz_One({
   variable: "--font-fugaz-one",
   weight: "400",
@@ -30,7 +26,7 @@ export default function RootLayout({
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4 ">
       <h1 className={`textGradient text-base font-fugaz`}><Link href="/">Moodl</Link></h1>
       <div className="flex items-center justify-between">
-        PLACEHOLDER CTA || STATS
+        <HeaderAction />
       </div>
     </header>
   );
@@ -44,7 +40,7 @@ export default function RootLayout({
       <AuthProvider>
         <Header />
         <body
-          className={`${openSans.variable} ${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
+          className={`${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
         >
           {header}
           {children}

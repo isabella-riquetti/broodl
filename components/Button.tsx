@@ -10,7 +10,7 @@ export default function Button({
   text: string,
     dark ?: boolean,
     full ?: boolean,
-    clickHandler: () => void | Promise<void>
+    clickHandler?: () => void | Promise<void>
 }) {
   return (
     <button
