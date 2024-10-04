@@ -70,13 +70,16 @@ export default function Calendar({ data }: { data?: any; handleSetMood?: (mood: 
             const isToday = dayIndex === now.getDate();
 
             const selectedDate = new Date(selectedYear, selectedMonth, dayIndex);
+            const previousDay = new Date(selectedYear, selectedMonth, dayIndex-1);
             const mockedData = selectedDate <= now
               ? gradients.indigo[baseRating[dayIndex]]
                 : "white";
 
             const color = !data
               ? mockedData                
-              : gradients.indigo[data?.[selectedYear]?.[selectedMonth]?.[dayIndex]] ?? "white";
+              : now > previousDay
+                ? "white"
+                : gradients.indigo[data?.[selectedYear]?.[selectedMonth]?.[dayIndex]] ?? "white";
             if (isEmptyDaySquare) return <div className='bg-white' key={dayOfWeek}></div>
 
             return (<div
