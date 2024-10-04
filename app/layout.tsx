@@ -41,10 +41,10 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <Header />
-        <ToastContainer />
         <body
           className={`${fugaz.variable} antialiased w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700 font-sans`}
         >
+          <ToastContainer />
           {header}
           {children}
           {footer}
