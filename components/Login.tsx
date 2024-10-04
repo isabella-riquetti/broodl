@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import React, { useState } from 'react'
 import Button from './Button';
@@ -16,13 +17,17 @@ export default function Login() {
       return
     }
     setAuthenticating(true)
-    if (isRegister) {
-      await signup(email, password)
-    } else {
-      await login(email, password)
+    try {
+      if (isRegister) {
+        await signup(email, password)
+      } else {
+        await login(email, password)
+      }
+    } catch (err: any) {
+      console.log(err.message)
+    } finally {
+      setAuthenticating(false)
     }
-
-    setAuthenticating(false);
   }
 
   return (
