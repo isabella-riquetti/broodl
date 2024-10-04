@@ -33,7 +33,7 @@ export default function RootLayout({
     </header>
   );
   const footer = (
-    <footer className="p-4 sm:p-8 flex justify-center font-fugaz text-indigo-600 gap-1">
+    <footer className="p-4 sm:p-8 flex justify-center font-fugaz text-orange-600 gap-1">
       <p className="opacity-90">Created with 💛 by</p><a href="https://isabella-riquetti.netlify.app/" target="_blank" className="opacity-90 hover:opacity-100 hover:underline">Isabella</a>
     </footer>
   );

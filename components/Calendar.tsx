@@ -47,17 +47,17 @@ export default function Calendar({ data }: { data?: any; handleSetMood?: (mood: 
   }
 
   return (
-    <div className={classNames('flex flex-col overflow-hidden gap-1', {
+    <div className={classNames('flex flex-col overflow-hidden gap-3', {
 
     })}>
       <div className='grid grid-cols-5 gap-4'>
         <button onClick={() => {
           handleIncrementMonth(-1)
-        }} className='mr-auto text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60'><i className="fa-solid fa-circle-chevron-left"></i></button>
+        }} className='mr-auto text-orange-400 text-lg sm:text-xl duration-200 hover:opacity-60'><i className="fa-solid fa-circle-chevron-left"></i></button>
         <p className="text-center col-span-3 capitalized whitespace-nowrap textGradient font-fugaz">{Object.keys(months)[selectedMonth]}, {selectedYear}</p>
         <button onClick={() => {
           handleIncrementMonth(+1)
-        }} className='ml-auto text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60'><i className="fa-solid fa-circle-chevron-right"></i></button>
+        }} className='ml-auto text-orange-400 text-lg sm:text-xl duration-200 hover:opacity-60'><i className="fa-solid fa-circle-chevron-right"></i></button>
       </div>
       <div className='grid grid-cols-7 gap-1 items-center text-center'>
         {daysOfTheWeek.map(d => (<div key={d}>{d}</div>))}
@@ -71,26 +71,28 @@ export default function Calendar({ data }: { data?: any; handleSetMood?: (mood: 
 
             const selectedDate = new Date(selectedYear, selectedMonth, dayIndex);
             const mockedData = selectedDate <= now
-              ? gradients.indigo[baseRating[dayIndex]]
+              ? gradients.orange[baseRating[dayIndex]]
                 : "white";
 
             const color = !data
               ? mockedData                
               : selectedDate > now 
                 ? "white"
-                : gradients.indigo[data?.[selectedYear]?.[selectedMonth]?.[dayIndex]] ?? "white";
+                : gradients.orange[data?.[selectedYear]?.[selectedMonth]?.[dayIndex]] ?? "white";
             if (isEmptyDaySquare) return <div className='bg-white' key={dayOfWeek}></div>
 
             return (<div
               key={dayOfWeek}
-              style={{ backgroundColor: color }}
-              className={classNames('text-xm sm:text-sm border p-2 flex items-center gap-2 justify-between rounded-lg text-center', {
-                'border-indigo-400 shadow-indigo-400 shadow-lg': isToday,
-                'border-indigo-100': !isToday,
-                'text-indigo-400': color === "white",
+              style={{
+                backgroundColor: color,
+                borderColor: color === "white" ? "#ffdebd" : color
+               }}
+              className={classNames('text-md p-2 flex items-center gap-2 justify-center rounded-lg text-center border font-bold', {
+                'shadow-orange-400 shadow-md': isToday,
+                'text-orange-400': color === "white",
                 'text-white': color !== "white",
               })}>
-              {dayIndex}
+                <span>{dayIndex}</span>
             </div>)
           })}
         </div>)

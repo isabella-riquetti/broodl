@@ -1,5 +1,4 @@
 'use client'
-import classNames from 'classnames';
 import React, { useEffect, useState } from 'react'
 import Calendar from './Calendar';
 import { useAuth } from '@/context/AuthContext';
@@ -97,12 +96,10 @@ export default function Dashboard() {
 
   return (
     <div className='flex flex-col flex-1 gap-8 sm:gap-12 md:gap-16'>
-      <div className='grid grid-cols-2 sm:grid-cols-3 bg-indigo-50 text-indigo-500 rounded-lg gap-4 p-4 text-center'>
-        {Object.entries(statuses).map(([key, value], index) => {
+      <div className='grid grid-cols-3 bg-orange-50 text-orange-500 rounded-lg gap-4 p-4 text-center'>
+        {Object.entries(statuses).map(([key, value]) => {
           return (
-            <div key={key} className={classNames('flex flex-col gap-1 sm:gap-2', {
-              'col-span-2 sm:col-span-1': index === 0
-            })}>
+            <div key={key} className='flex flex-col gap-1 sm:gap-2'>
               <p className='font-medium uppercase text-xs sm:text-sm truncate'>{key.replace(/_/g, ' ')}</p>
               <p className='font-fugaz text-base sm:text-lg truncate'>{value}</p>
             </div>
@@ -112,15 +109,15 @@ export default function Dashboard() {
       <h4 className='font-fugaz text-5xl-gradual text-center'>
         How do you <span className='textGradient'>feel</span> today?
       </h4>
-      <div className="flex flex-wrap gap-4 text-center">
+      <div className="flex flex-wrap gap-4 sm:gap-3 text-center">
         {Object.entries(moods).map(([key, mood], moodIndex) => {
           return (
             <button onClick={() => {
               const currentMoodValue = moodIndex + 1
               handleSetMood(currentMoodValue)
-            }} className={'p-4 px-5 rounded-2xl purpleShadow duration-200 bg-indigo-50 hover:bg-indigo-100 text-center flex flex-col items-center gap-2 flex-1 '} key={moodIndex}>
+            }} className={'py-4 px-5 rounded-2xl purpleShadow duration-200 bg-orange-50 hover:bg-orange-100 text-center flex flex-col items-center gap-2 flex-1 '} key={moodIndex}>
               <p className='text-4xl sm:text-5xl md:text-6xl'>{mood}</p>
-              <p className="text-indigo-500 text-xs sm:text-sm md:text-base font-fugaz">{key}</p>
+              <p className="text-orange-500 text-xs sm:text-sm md:text-base font-fugaz">{key}</p>
             </button>)
         })}
       </div>
